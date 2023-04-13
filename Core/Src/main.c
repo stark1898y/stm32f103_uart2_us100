@@ -111,7 +111,6 @@ int main(void)
       printf("us100: %.2f (cm)\r\n", us100_current_mm / 10.0);
     }
 
-
     BSP_US100_Loop();
     BSP_SoftTimer_Loop();
     /* USER CODE END WHILE */
