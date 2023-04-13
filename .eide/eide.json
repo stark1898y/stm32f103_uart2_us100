@@ -54,6 +54,15 @@
         ]
       },
       {
+        "name": "common",
+        "files": [
+          {
+            "path": "common_library/MultiTimer/MultiTimer.c"
+          }
+        ],
+        "folders": []
+      },
+      {
         "name": "Drivers",
         "files": [],
         "folders": [
@@ -199,7 +208,9 @@
           ".eide/deps",
           "BSP/uart",
           "BSP/us100",
-          "sys"
+          "sys",
+          "BSP/soft_timer",
+          "common_library/MultiTimer"
         ],
         "libList": [],
         "sourceDirList": [],

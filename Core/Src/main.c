@@ -24,7 +24,7 @@
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 #include "bsp_us100.h"
-
+#include "bsp_soft_timer.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -45,6 +45,7 @@
 /* Private variables ---------------------------------------------------------*/
 
 /* USER CODE BEGIN PV */
+
 
 /* USER CODE END PV */
 
@@ -98,9 +99,21 @@ int main(void)
   /* USER CODE BEGIN WHILE */
   while (1)
   {
-    printf("us100: %.2f (cm)\r\n", BSP_US100_Read() / 10.0);
-    HAL_Delay(1000);
+    // if (BSP_US100_Read() != 0)
+    // {
+    //   printf("us100: %.2f (cm)\r\n", BSP_US100_Read() / 10.0);
+    // }
+    // printf("us100: %.2f (cm)\r\n", BSP_US100_Read() / 10.0);
+    // HAL_Delay(1000);
+    if (us100_read_ok_flag == 1)
+    {
+      us100_read_ok_flag = 0;
+      printf("us100: %.2f (cm)\r\n", us100_current_mm / 10.0);
+    }
 
+
+    BSP_US100_Loop();
+    BSP_SoftTimer_Loop();
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
